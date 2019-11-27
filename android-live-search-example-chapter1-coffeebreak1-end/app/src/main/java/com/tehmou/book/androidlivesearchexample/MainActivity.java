@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 
+import io.reactivex.disposables.Disposable;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         final Switch switchButton = (Switch) findViewById(R.id.switch_button);
         final TextView textView1 = (TextView) findViewById(R.id.text_view_1);
 
-        RxCompoundButton.checkedChanges(switchButton)
-                .subscribe(checked -> textView1.setText("Checked: " + checked));
+        final Disposable switchButtonDisposable = RxCompoundButton.checkedChanges(switchButton)
+                .subscribe(checked -> textView1.setText(String.format("Checked: %s", checked)));
 
 
         // Set the textView2 to say the text is too long if editText is more than 7 characters
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         switchTemp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                textViewTemp.setText("Checked " + isChecked);
+                textViewTemp.setText(String.format("Checked %s", isChecked));
             }
         });
 
