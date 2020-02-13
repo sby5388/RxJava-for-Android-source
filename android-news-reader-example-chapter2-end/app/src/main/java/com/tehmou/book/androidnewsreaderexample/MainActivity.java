@@ -26,10 +26,10 @@ public class MainActivity extends Activity {
 
         final List<String> feedUrls = Arrays.asList(
                 // TODO: 2019/11/8 这个链接不可用 
-//                "https://news.google.com/?output=atom",
-                "http://www.theregister.co.uk/software/headlines.atom"
+                "https://news.google.com/?output=atom",
+                "http://www.theregister.co.uk/software/headlines.atom",
                 // TODO: 2019/11/8 这个链接超时，访问异常
-//                "http://www.linux.com/news/soware?format=feed&type=atom"
+                "http://www.linux.com/news/soware?format=feed&type=atom"
         );
 
         final List<Observable<List<Entry>>> observableList = new ArrayList<>();

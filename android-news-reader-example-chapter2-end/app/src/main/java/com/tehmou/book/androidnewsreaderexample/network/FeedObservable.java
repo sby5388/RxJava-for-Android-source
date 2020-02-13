@@ -20,6 +20,7 @@ public class FeedObservable {
                     // TODO: 2019/11/8 Response-->转换成实体类
                     FeedParser parser = new FeedParser();
                     try {
+                        // TODO: 2019/11/27 xml解释器
                         List<Entry> entries = parser.parse(response.body().byteStream());
                         Log.v(TAG, "Number of entries from url " + url + ": " + entries.size());
                         return entries;
